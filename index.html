@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio Pipeline Interactif</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+        <style>
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f5f7fa;
+                color: #333;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .graph-container {
+                width: 100%;
+                height: 600px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background: white;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            }
+
+            .details-panel {
+                padding: 20px;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease;
+            }
+
+            .node {
+                cursor: pointer;
+            }
+
+            .node rect {
+                fill: white;
+                stroke: #2c3e50;
+                stroke-width: 2px;
+                rx: 6;
+                ry: 6;
+            }
+
+            .node text {
+                font-size: 12px;
+                text-anchor: middle;
+            }
+
+            .node .date {
+                font-size: 10px;
+                fill: #7f8c8d;
+            }
+
+            .link {
+                stroke: #95a5a6;
+                stroke-width: 2px;
+                fill: none;
+                marker-end: url(#arrowhead);
+            }
+
+            .node-formation rect {
+                stroke: #3498db;
+            }
+
+            .node-projet rect {
+                stroke: #2ecc71;
+            }
+
+            .node-stage rect {
+                stroke: #e74c3c;
+            }
+
+            .icon-circle {
+                fill: #ecf0f1;
+                stroke: #bdc3c7;
+            }
+
+            .icon-path {
+                fill: #7f8c8d;
+            }
+
+            .selected rect {
+                stroke-width: 3px;
+                filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+            }
+
+            #details-title {
+                font-size: 24px;
+                margin: 0 0 10px 0;
+                color: #2c3e50;
+            }
+
+            #details-date {
+                font-size: 14px;
+                color: #7f8c8d;
+                margin: 0 0 20px 0;
+            }
+
+            #details-description {
+                line-height: 1.6;
+            }
+
+            .no-selection {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 200px;
+                color: #95a5a6;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Mon Parcours Professionnel</h1>
+            <div class="graph-container" id="graph"></div>
+            <div class="details-panel" id="details">
+                <div class="no-selection">
+                    Cliquez sur un élément pour afficher les détails
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Données de démonstration (à remplacer par vos données réelles)
+            const data = {
+                nodes: [
+                    {
+                        id: "formation1",
+                        type: "formation",
+                        title: "Master en Science des Données",
+                        date: "2019-09-01",
+                        description:
+                            "Formation approfondie en analyse de données, machine learning et visualisation. J'ai acquis des compétences solides en Python, R et SQL ainsi qu'une bonne compréhension des algorithmes de ML.",
+                        icon: "graduation-cap",
+                    },
+                    {
+                        id: "formation2",
+                        type: "formation",
+                        title: "Certification Data Engineering",
+                        date: "2021-03-01",
+                        description:
+                            "Spécialisation en ingénierie des données avec focus sur les technologies big data, ETL et data warehousing. Travail sur Spark, Hadoop et systèmes de bases de données distribuées.",
+                        icon: "graduation-cap",
+                    },
+                    {
+                        id: "projet1",
+                        type: "projet",
+                        title: "Analyse prédictive des ventes",
+                        date: "2020-02-15",
+                        description:
+                            "Projet académique de prédiction des ventes utilisant des séries temporelles. J'ai implémenté des modèles ARIMA et Prophet pour prévoir les ventes sur des données de supermarchés.",
+                        icon: "chart-line",
+                    },
+                    {
+                        id: "projet2",
+                        type: "projet",
+                        title: "Pipeline ETL automatisé",
+                        date: "2021-07-10",
+                        description:
+                            "Conception et mise en œuvre d'un pipeline ETL pour traiter des données de capteurs IoT en temps réel. Utilisation d'Apache Airflow et Kafka pour l'orchestration et le streaming.",
+                        icon: "code",
+                    },
+                    {
+                        id: "stage1",
+                        type: "stage",
+                        title: "Stage Data Scientist",
+                        date: "2020-06-01",
+                        description:
+                            "Stage de 6 mois chez DataCorp, où j'ai travaillé sur l'optimisation des algorithmes de recommandation. J'ai amélioré la précision du système de 15% en implémentant des techniques de deep learning.",
+                        icon: "briefcase",
+                    },
+                ],
+                links: [
+                    { source: "formation1", target: "projet1" },
+                    { source: "formation1", target: "stage1" },
+                    { source: "formation1", target: "formation2" },
+                    { source: "formation2", target: "projet2" },
+                ],
+            };
+
+            // Configuration
+            const width = document.getElementById("graph").clientWidth;
+            const height = document.getElementById("graph").clientHeight;
+            const nodeWidth = 100;
+            const nodeHeight = 80;
+            const iconSize = 24;
+
+            // Création du SVG
+            const svg = d3
+                .select("#graph")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            // Définition de la flèche pour les liens
+            svg.append("defs")
+                .append("marker")
+                .attr("id", "arrowhead")
+                .attr("viewBox", "0 -5 10 10")
+                .attr("refX", 20)
+                .attr("refY", 0)
+                .attr("markerWidth", 6)
+                .attr("markerHeight", 6)
+                .attr("orient", "auto")
+                .append("path")
+                .attr("d", "M0,-5L10,0L0,5")
+                .attr("fill", "#95a5a6");
+
+            // Création de la simulation
+            const simulation = d3
+                .forceSimulation(data.nodes)
+                .force(
+                    "link",
+                    d3
+                        .forceLink(data.links)
+                        .id((d) => d.id)
+                        .distance(200)
+                )
+                .force("charge", d3.forceManyBody().strength(-300))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("x", d3.forceX(width / 2).strength(0.1))
+                .force(
+                    "y",
+                    d3
+                        .forceY((d) => {
+                            // Positionnement vertical basé sur la date
+                            const date = new Date(d.date);
+                            const minDate = new Date("2019-01-01");
+                            const maxDate = new Date("2022-01-01");
+                            const timeScale = d3
+                                .scaleLinear()
+                                .domain([minDate.getTime(), maxDate.getTime()])
+                                .range([100, height - 100]);
+                            return timeScale(date.getTime());
+                        })
+                        .strength(0.5)
+                );
+
+            // Création des liens
+            const link = svg
+                .append("g")
+                .selectAll("path")
+                .data(data.links)
+                .enter()
+                .append("path")
+                .attr("class", "link");
+
+            // Création des nœuds
+            const node = svg
+                .append("g")
+                .selectAll(".node")
+                .data(data.nodes)
+                .enter()
+                .append("g")
+                .attr("class", (d) => `node node-${d.type}`)
+                .call(
+                    d3
+                        .drag()
+                        .on("start", dragstarted)
+                        .on("drag", dragged)
+                        .on("end", dragended)
+                );
+
+            // Ajout des rectangles pour chaque nœud
+            node.append("rect")
+                .attr("width", nodeWidth)
+                .attr("height", nodeHeight)
+                .attr("x", -nodeWidth / 2)
+                .attr("y", -nodeHeight / 2);
+
+            // Ajout du cercle pour l'icône
+            node.append("circle")
+                .attr("class", "icon-circle")
+                .attr("r", iconSize / 1.5)
+                .attr("cx", 0)
+                .attr("cy", -nodeHeight / 4);
+
+            // Ajout des icônes (utilisation de formes SVG simple pour la démo)
+            node.each(function (d) {
+                const iconGroup = d3.select(this);
+
+                switch (d.icon) {
+                    case "graduation-cap":
+                        iconGroup
+                            .append("path")
+                            .attr("class", "icon-path")
+                            .attr(
+                                "d",
+                                "M-10,-15 L0,-20 L10,-15 L10,-12 L0,-17 L-10,-12 z"
+                            )
+                            .attr("transform", "translate(0,2) scale(0.6)");
+                        iconGroup
+                            .append("rect")
+                            .attr("class", "icon-path")
+                            .attr("x", -8)
+                            .attr("y", -12)
+                            .attr("width", 16)
+                            .attr("height", 3)
+                            .attr("transform", "translate(0,2) scale(0.6)");
+                        break;
+                    case "chart-line":
+                        iconGroup
+                            .append("path")
+                            .attr("class", "icon-path")
+                            .attr("d", "M-8,5 L-3,-2 L2,3 L8,-4")
+                            .attr("fill", "none")
+                            .attr("stroke", "#7f8c8d")
+                            .attr("stroke-width", 2)
+                            .attr("transform", "translate(0,-5) scale(0.8)");
+                        break;
+                    case "code":
+                        iconGroup
+                            .append("path")
+                            .attr("class", "icon-path")
+                            .attr("d", "M-6,0 L-2,4 L-6,8 M6,0 L2,4 L6,8")
+                            .attr("fill", "none")
+                            .attr("stroke", "#7f8c8d")
+                            .attr("stroke-width", 2)
+                            .attr("transform", "translate(0,-5) scale(0.7)");
+                        break;
+                    case "briefcase":
+                        iconGroup
+                            .append("rect")
+                            .attr("class", "icon-path")
+                            .attr("x", -7)
+                            .attr("y", -7)
+                            .attr("width", 14)
+                            .attr("height", 12)
+                            .attr("rx", 1)
+                            .attr("ry", 1)
+                            .attr("transform", "translate(0,-5) scale(0.7)");
+                        iconGroup
+                            .append("rect")
+                            .attr("class", "icon-path")
+                            .attr("x", -4)
+                            .attr("y", -10)
+                            .attr("width", 8)
+                            .attr("height", 3)
+                            .attr("transform", "translate(0,-5) scale(0.7)");
+                        break;
+                }
+            });
+
+            // Ajout du titre
+            node.append("text")
+                .attr("dy", nodeHeight / 2 - 10)
+                .attr("text-anchor", "middle")
+                .text((d) =>
+                    d.title.length > 20
+                        ? d.title.substring(0, 18) + "..."
+                        : d.title
+                );
+
+            // Ajout de la date
+            node.append("text")
+                .attr("class", "date")
+                .attr("dy", nodeHeight / 2 + 10)
+                .attr("text-anchor", "middle")
+                .text((d) => {
+                    const date = new Date(d.date);
+                    return date.toLocaleDateString("fr-FR", {
+                        year: "numeric",
+                        month: "short",
+                    });
+                });
+
+            // Gestion des clics pour afficher les détails
+            node.on("click", showDetails);
+
+            // Mise à jour des positions à chaque tick de la simulation
+            simulation.on("tick", () => {
+                link.attr("d", (d) => {
+                    const dx = d.target.x - d.source.x;
+                    const dy = d.target.y - d.source.y;
+                    const dr = Math.sqrt(dx * dx + dy * dy);
+
+                    // Calcul des points de départ et d'arrivée pour avoir les flèches qui partent des bords des rectangles
+                    const sourceX = d.source.x + (nodeWidth / 2) * (dx / dr);
+                    const sourceY = d.source.y + (nodeHeight / 2) * (dy / dr);
+                    const targetX = d.target.x - (nodeWidth / 2) * (dx / dr);
+                    const targetY = d.target.y - (nodeHeight / 2) * (dy / dr);
+
+                    return `M${sourceX},${sourceY}L${targetX},${targetY}`;
+                });
+
+                node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+            });
+
+            // Fonctions pour la gestion du drag & drop
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                // Conserver la position après le drag
+                // Si vous souhaitez que les nœuds reviennent à leur position calculée, décommentez les lignes suivantes
+                // d.fx = null;
+                // d.fy = null;
+            }
+
+            // Fonction pour afficher les détails d'un élément
+            function showDetails(event, d) {
+                // Mettre à jour la classe sélectionnée
+                d3.selectAll(".node").classed("selected", false);
+                d3.select(this).classed("selected", true);
+
+                // Afficher les détails dans le panneau
+                const detailsPanel = document.getElementById("details");
+                detailsPanel.innerHTML = `
+        <h2 id="details-title">${d.title}</h2>
+        <p id="details-date">${new Date(d.date).toLocaleDateString("fr-FR", {
+            year: "numeric",
+            month: "long",
+        })}</p>
+        <div id="details-type" class="tag ${d.type}">${
+                    d.type.charAt(0).toUpperCase() + d.type.slice(1)
+                }</div>
+        <p id="details-description">${d.description}</p>
+        <style>
+          .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 15px;
+          }
+          .formation {
+            background-color: #3498db;
+          }
+          .projet {
+            background-color: #2ecc71;
+          }
+          .stage {
+            background-color: #e74c3c;
+          }
+        </style>
+      `;
+            }
+        </script>
+    </body>
+</html>
