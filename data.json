@@ -1,0 +1,436 @@
+{
+    "nodes": [
+        {
+            "id": "bia",
+            "titre_court": "BIA",
+            "date": "Sept. 2016 - mai 2017",
+            "duree": "9 mois",
+            "titre_long": "Brevet d'initiation aéronautique",
+            "statut": "",
+            "localisation": "Collège Henri Pourrat, Ceyrat",
+            "description": [
+                "J’ai eu l’opportunité de préparer et d'obtenir le Brevet d'Initiation Aéronautique (BIA) en classe de 4e, ce qui représente un engagement relativement précoce dans un domaine technique exigeant. Cette expérience m'a permis de développer des connaissances théoriques en aéronautique, notamment en mécanique du vol, météorologie et navigation. Bien que je n'aie pas poursuivi dans cette filière par la suite, cette formation a renforcé mon intérêt pour les environnements rigoureux et structurés, tout en cultivant ma curiosité scientifique et ma capacité à m'investir dans des projets ambitieux."
+            ],
+            "competences": [],
+            "liens": [],
+            "icon": "light/plane-departure.svg",
+            "logo": "bia.webp",
+            "photos": [],
+            "type": "education",
+            "x": 0,
+            "y": 3
+        },
+        {
+            "id": "bac",
+            "titre_court": "BAC STI2D SIN",
+            "date": "Sept. 2018 - juin 2021",
+            "duree": "3 ans",
+            "titre_long": "Baccalauréat STI2D option Systèmes d'Information et Numérique",
+            "statut": "",
+            "localisation": "Lycée La Fayette, Clermont-Ferrand",
+            "description": [
+                "Le Bac STI2D, spécialité SIN, m'a permis d'acquérir des connaissances technologiques dans les domaines de l'informatique et des systèmes d'information. J'ai appris à comprendre et à analyser les principes de base des réseaux, de la programmation et des objets connectés. Ce parcours m'a également offert une vision globale des enjeux techniques et des méthodes utilisées dans la conception de solutions numériques, tout en me préparant à travailler en équipe sur des projets technologiques. Cette formation a renforcé mon intérêt pour les nouvelles technologies et m'a permis d'explorer les différents aspects du secteur numérique.",
+                "Accronyme STI2D : sciences et technologies de l'industrie et du développement durable."
+            ],
+            "competences": [],
+            "liens": [],
+            "icon": "light/graduation-cap.svg",
+            "logo": "lycee_lafayette.png",
+            "photos": [],
+            "type": "education",
+            "x": 1,
+            "y": 3
+        },
+        {
+            "id": "proj_sarcophage",
+            "titre_court": "Transport de sarcophage",
+            "date": "Mai 2021",
+            "duree": "1 mois",
+            "titre_long": "Système de gestion de la sécurité de sarcophages",
+            "statut": "",
+            "localisation": "Lycée La Fayette, Clermont-Ferrand",
+            "description": [
+                "Suite à la découverte de sarcophages en bois dans le Cantal, de nombreux acteurs interviennent et prennent part dans ce projet pour oeuvrer en faveur de la bonne conservation de ces pièces. En groupe, en fin de terminale (STI2D SIN), nous avons développé un système permettant la gestion de la sécurité des sarcophages lorsqu'ils seront immergés (pour préserver leur état de conservation) au fond d'un lac.",
+                "Nous avons utilisé du matériel Arduino, des capteurs (capteur de température, capteur pH-mètre, capteur de luminosité) pour concevoir un système permettant de surveiller les sarcophages.",
+                "Ce projet a été réalisé en groupe de quatre. Deux élèves de STI2D ITEC pour concevoir la boîte qui accueillera notre système (plongé à 10 mètre sous l'eau, 365 jours par an) ainsi que deux élèves de STI2D SIN dont j'ai fais partie pour la partie informatique. Ce premier projet important nous a également permis de découvrir la gestion de projet."
+            ],
+            "competences": ["C++", "Arduino"],
+            "liens": [],
+            "icon": "light/microchip.svg",
+            "logo": "lycee_lafayette.png",
+            "photos": [
+                "proj_sarcophage_img.jpg",
+                "proj_sarcophage_systeme.jpg"
+            ],
+            "type": "project",
+            "x": 1.5,
+            "y": 2
+        },
+        {
+            "id": "mooc_cnil",
+            "titre_court": "Mooc CNIL",
+            "date": "Octobre 2022",
+            "duree": "1 mois",
+            "titre_long": "Mooc CNIL",
+            "statut": "",
+            "localisation": "",
+            "description": [
+                "J'ai suivi un MOOC proposé par la CNIL, ce qui m'a permis d'acquérir une bonne compréhension des enjeux liés à la protection des données personnelles et à la réglementation en vigueur, notamment le RGPD (Règlement Général sur la Protection des Données). Cette formation en ligne m'a permis de mieux comprendre les droits des individus en matière de confidentialité, les obligations des entreprises et les bonnes pratiques à adopter pour garantir la sécurité des données. Elle a renforcé ma sensibilisation aux problématiques de sécurité numérique et à la responsabilité collective en matière de respect de la vie privée."
+            ],
+            "competences": [
+                "Maîtrise du RGPD",
+                "Protection des données",
+                "Conformité juridique"
+            ],
+            "liens": [],
+            "icon": "light/shield-check.svg",
+            "logo": "cnil.jpg",
+            "photos": [],
+            "type": "education",
+            "x": 1.5,
+            "y": 4
+        },
+        {
+            "id": "but_valence",
+            "titre_court": "BUT1 Informatique",
+            "date": "Sept 2021 - juin 2022",
+            "duree": "1 an",
+            "titre_long": "BUT1 Informatique",
+            "statut": "",
+            "localisation": "IUT de Valence",
+            "description": [
+                "Cette première année au sein de l'IUT de Valence m'a permis d'acquérir des bases solides en développement (web, orienté objet, IHM), algorithmique, bases de données, systèmes et réseaux.",
+                "J'ai participé à plusieurs projets : recueil de besoins, création d'applications, gestion de projet, travail en équipe et comparaison d'approches algorithmiques.",
+                "J'ai aussi développé une ouverture sur l'environnement économique, juridique et durable du numérique."
+            ],
+            "competences": [
+                "Power BI",
+                "Développement web",
+                "Bases de données",
+                "Java",
+                "Algorithmes"
+            ],
+            "liens": [],
+            "icon": "light/graduation-cap.svg",
+            "logo": "iutvalence.png",
+            "photos": [],
+            "type": "education",
+            "x": 2,
+            "y": 3
+        },
+        {
+            "id": "but_annecy",
+            "titre_court": "BUT Informatique",
+            "date": "Sept 2022 - juin 2024",
+            "duree": "2 ans",
+            "titre_long": "BUT Informatique",
+            "statut": "",
+            "localisation": "IUT d'Annecy",
+            "description": [
+                "Renforcement de mes compétences en développement, exploitation et visualisation de données, optimisation, sécurité et intelligence artificielle.",
+                "Participation à des projets orientés data : création de bases, analyse avancée, solutions décisionnelles, gestion et protection des données.",
+                "Approche orientée qualité, travail en équipe, et management de projets informatiques."
+            ],
+            "competences": [
+                "Bases de données",
+                "Administration de bases de données",
+                "Analyse des données",
+                "Gestion d'équipe",
+                "Réseaux de neurones convolutifs",
+                "Apprentissage automatique"
+            ],
+            "liens": [],
+            "icon": "light/graduation-cap.svg",
+            "logo": "iutannecy.png",
+            "photos": [],
+            "type": "education",
+            "x": 3,
+            "y": 3
+        },
+        {
+            "id": "proj_miliboo",
+            "titre_court": "Projet Miliboo",
+            "date": "Oct. 2022 - janv. 2022",
+            "duree": "4 mois",
+            "titre_long": "Projet Miliboo",
+            "statut": "",
+            "localisation": "IUT d'Annecy",
+            "description": [
+                "Projet réalisé en BUT informatique, développement d'un site internet e-commerce de vente de meuble. Le développement du site a été réalisé en Laravel 9, nous avons également réalisé la base de données, ... Ce travail d'équipe a été mené en méthode agile de type Scrum."
+            ],
+            "competences": [
+                "Bases de données",
+                "Gestion de projet",
+                "Power BI",
+                "Développement web"
+            ],
+            "liens": [
+                {
+                    "titre_court": "Repository GitHub",
+                    "url": "https://github.com/lorrisc/Miliboo"
+                }
+            ],
+            "icon": "light/window.svg",
+            "logo": "miliboo.png",
+            "photos": [
+                "proj_miliboo_1.png",
+                "proj_miliboo_2.png",
+                "proj_miliboo_3.png",
+                "proj_miliboo_4.png",
+                "proj_miliboo_5.png",
+                "proj_miliboo_6.png",
+                "proj_miliboo_7.png",
+                "proj_miliboo_8.png",
+                "proj_miliboo_9.png"
+            ],
+            "type": "project",
+            "x": 2.5,
+            "y": 2
+        },
+        {
+            "id": "proj_openfoodfacts",
+            "titre_court": "Projet Open Food Facts",
+            "date": "Mars 2023",
+            "duree": "1 mois",
+            "titre_long": "Projet Open Food Facts",
+            "statut": "",
+            "localisation": "IUT d'Annecy",
+            "description": [
+                "Open Food Facts est une base de données de plus de 600 000 produits. Ce projet a été mené à quatre, nous avions pour mission de créer la base de données (à partir du fichier plat fourni), réaliser des rapports power bi, ainsi qu'analyser et mettre en place différents modèles IA grâce à Knime.",
+                "Si nous devions retenir un mot pour décrire ce projet, ce serait : optimisation. En effet à chaque étape du projet, nous avons cherché à fournir la solution la plus adaptée. Typiquement, la solution finale retenue pour extraire les informations du fichier plat et les répartir dans les tables de notre base de données est un script Python. Ce script génère tous les fichiers CSV représentant les tables. Nous avons dû générer 100 ventes par produit soit plus de 60 000 000 de ventes. L'ensemble du programme est exécuté en moins de 8 minutes grâce à l'utilisation des fonctions Pandas adaptées et l'utilisation de la librairie multiprocessing."
+            ],
+            "competences": [
+                "Gestion de projet",
+                "Bases de données",
+                "Analyse des données",
+                "Apprentissage automatique",
+                "Power BI",
+                "Python"
+            ],
+            "liens": [
+                {
+                    "titre_court": "Repository GitHub",
+                    "url": "https://github.com/lorrisc/OpenFoodFacts"
+                }
+            ],
+            "icon": "light/database.svg",
+            "logo": "openfoodfact.png",
+            "photos": [],
+            "type": "project",
+            "x": 3.5,
+            "y": 2
+        },
+        {
+            "id": "stag_hgap",
+            "titre_court": "Outils de reporting",
+            "date": "Avril 2023 - juin 2023",
+            "duree": "3 mois",
+            "titre_long": "Développement d'outils de reporting",
+            "statut": "Stage",
+            "localisation": "Groupe Artisans Partenaires",
+            "description": [
+                "Développements d'outils de BI reporting.",
+                "Création de base de données, extraction automatisée de données. ",
+                "Développement d'un site type intranet pour visualiser des rapports statistiques."
+            ],
+            "competences": [
+                "PHP",
+                "JavaScript",
+                "Communication",
+                "Bases de données"
+            ],
+            "liens": [],
+            "icon": "light/sign-posts-wrench.svg",
+            "logo": "gap.png",
+            "photos": [],
+            "type": "experience",
+            "x": 4.5,
+            "y": 2.1
+        },
+        {
+            "id": "freel_hgap",
+            "titre_court": "Outils de reporting",
+            "date": "juin 2023 - Août 2023",
+            "duree": "3 mois",
+            "titre_long": "Développement d'outils de reporting",
+            "statut": "Freelance",
+            "localisation": "Groupe Artisans Partenaires",
+            "description": [
+                "Dans la continuité de mon stage, j'ai développé de nouveaux outils permettant au Groupe Artisans Partenaires d'améliorer leur productivité."
+            ],
+            "competences": [
+                "PHP",
+                "JavaScript",
+                "Communication",
+                "Bases de données"
+            ],
+            "liens": [],
+            "icon": "light/sign-posts-wrench.svg",
+            "logo": "gap.png",
+            "photos": [],
+            "type": "experience",
+            "x": 5.5,
+            "y": 2
+        },
+        {
+            "id": "proj_imdb",
+            "titre_court": "Projet Internet Movie Database",
+            "date": "Janv. 2024 - mars 2024",
+            "duree": "3 mois",
+            "titre_long": "Projet Internet Movie Database",
+            "statut": "",
+            "localisation": "IUT d'Annecy",
+            "description": [
+                "L'Internet movie database (IMDb) est une base de données sur le cinéma mondial, sur la télévision et sur les jeux vidéo. Au cours de ce projet, nous avons créé une base de données Postgres optimisée (table allant jusqu'à 70 millions de lignes). Nous avons ensuite créé des rapports sur PowerBi. Puis nous avons créé plusieurs modèles d'IA pour répondre à nos besoins."
+            ],
+            "competences": [
+                "Réseaux de neurones convolutifs",
+                "Réseau de neurones récurrents",
+                "Bases de données",
+                "Gestion de projet",
+                "Gestion d'équipe",
+                "Analyse des données",
+                "Power BI",
+                "Python"
+            ],
+            "liens": [],
+            "icon": "light/database.svg",
+            "logo": "imdb.png",
+            "photos": [],
+            "type": "project",
+            "x": 2.5,
+            "y": 4
+        },
+        {
+            "id": "proj_ogplay",
+            "titre_court": "Gestion d'une entreprise simulée",
+            "date": "Avril 2024",
+            "duree": "1 mois",
+            "titre_long": "Gestion opérationnelle et stratégique d'une entreprise simulée",
+            "statut": "",
+            "localisation": "IUT d'Annecy",
+            "description": [
+                "Encadrés par le dispositif pédagogique OGP'LAY, à cinq nous avons piloté en situation quasi-réelle une grande entreprise produisant des brioches. Grâce à la diversité de nos profils, nous avons ensemble développé nos compétences en gestion de production, gestion financière, marketing et en droit."
+            ],
+            "competences": [
+                "Gestion d'équipe",
+                "Analyse des données",
+                "Power BI",
+                "Python"
+            ],
+            "liens": [],
+            "icon": "light/briefcase.svg",
+            "logo": "iutannecy.png",
+            "photos": [],
+            "type": "project",
+            "x": 3.5,
+            "y": 4
+        },
+        {
+            "id": "app_minarm_1",
+            "titre_court": "Ministère des Armées",
+            "date": "Sept 2023 - Août 2024",
+            "duree": "1 an",
+            "titre_long": "Ministère des Armées",
+            "statut": "Apprenti",
+            "localisation": "Paris",
+            "description": [
+                "J'ai eu l'opportunité de réaliser un apprentissage au sein du Ministère des Armées. Cet expérience fut enrichissante, elle m'a permis de découvrir le fonctionnement d'une organisation complexe et exigeante. J'ai pu développer mes compétences techniques et professionnelles dans un environnement rigoureux, tout en travaillant sur des projets concrets de grande envergure.",
+                "Au terme de cette année, j'ai décidé de continuer dans cette voie en réalisant mon apprentissage de master dans la même équipe."
+            ],
+            "competences": [
+                "Bases de données",
+                "Intégration de données",
+                "Dataviz",
+                "Python"
+            ],
+            "liens": [],
+            "icon": "Marianne_logo_(1799).svg",
+            "logo": "minarm.png",
+            "photos": [],
+            "type": "experience",
+            "x": 4.5,
+            "y": 3.9
+        },
+        {
+            "id": "master",
+            "titre_court": "Master MIAGE IDA",
+            "date": "Sept. 2024 - Sept. 2026",
+            "duree": "2 ans",
+            "titre_long": "Master MIAGE Parcours Ingénierie des Données et Analyse",
+            "statut": "",
+            "localisation": "Université Toulouse 1 Capitole",
+            "description": [
+                "Cours suivis :",
+                "- Bases de données relationnelles avancées",
+                "- Bases de données décisionnelles",
+                "- Intégration de données",
+                "- Intelligence artificielle",
+                "- Analyse et visualisation de données",
+                "- Conception et programmation orientée objet",
+                "- Modélisation du SI",
+                "- Modélisation des données et des processus",
+                "- Gestion de projet",
+                "- Droit du numérique",
+                "- Agilité pour le recueil des besoins",
+                "- Anglais"
+            ],
+            "competences": [
+                "Bases de données",
+                "Analyse des données",
+                "Traitement des données",
+                "Intégration de données",
+                "Gestion de projet",
+                "Apprentissage automatique"
+            ],
+            "liens": [],
+            "icon": "light/graduation-cap.svg",
+            "logo": "utc.jpg",
+            "photos": [],
+            "type": "education",
+            "x": 5,
+            "y": 3
+        },
+
+        {
+            "id": "app_minarm_2",
+            "titre_court": "Ministère des Armées",
+            "date": "Sept 2024 - Sept 2026",
+            "duree": "2 an",
+            "titre_long": "Ministère des Armées",
+            "statut": "Apprenti",
+            "localisation": "Paris",
+            "description": [],
+            "competences": [
+                "Bases de données",
+                "Intégration de données",
+                "Dataviz",
+                "Python"
+            ],
+            "liens": [],
+            "icon": "Marianne_logo_(1799).svg",
+            "logo": "minarm.png",
+            "photos": [],
+            "type": "experience",
+            "x": 5.5,
+            "y": 4
+        }
+    ],
+    "links": [
+        { "source": "bia", "target": "bac" },
+        { "source": "bac", "target": "proj_sarcophage" },
+        { "source": "bac", "target": "mooc_cnil" },
+        { "source": "bac", "target": "but_valence" },
+        { "source": "but_valence", "target": "but_annecy" },
+        { "source": "but_annecy", "target": "proj_miliboo" },
+        { "source": "but_annecy", "target": "proj_openfoodfacts" },
+        { "source": "but_annecy", "target": "stag_hgap" },
+        { "source": "stag_hgap", "target": "freel_hgap" },
+        { "source": "but_annecy", "target": "proj_imdb" },
+        { "source": "but_annecy", "target": "proj_ogplay" },
+        { "source": "but_annecy", "target": "app_minarm_1" },
+        { "source": "but_annecy", "target": "master" },
+        { "source": "master", "target": "app_minarm_2" },
+        { "source": "app_minarm_1", "target": "app_minarm_2" }
+    ]
+}
