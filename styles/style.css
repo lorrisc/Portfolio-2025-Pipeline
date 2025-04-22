@@ -1,0 +1,54 @@
+:root {
+    --title-color: rgb(0, 0, 0);
+    --text-light-color: rgb(115, 115, 115);
+    --text-color: rgb(64, 64, 64);
+    --text-color-white: rgb(241, 241, 241);
+    --project-color: #3cd300;
+    --education-color: #4285f4;
+    --experience-color: #ea4335;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/Inter/Inter-VariableFont_opsz\,wght.ttf")
+        format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #eff4ff;
+    color: var(--text-color);
+    height: 100vh;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 65% 35%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    height: 100vh;
+}
+
+#presentation__container {
+    grid-area: 1 / 1 / 3 / 2;
+}
+#parcours {
+    grid-area: 1 / 2 / 2 / 3;
+}
+#details {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.shadow {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+a:visited {
+    color: blue;
+}

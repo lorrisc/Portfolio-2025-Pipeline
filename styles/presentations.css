@@ -1,0 +1,43 @@
+#presentation__container {
+    height: 100%;
+    padding: 10px 20px 10px 10px;
+    box-sizing: border-box;
+}
+#presentation {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    background: white;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+#presentation__photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-image: url("../assets/images/photo_lorris.PNG");
+    background-size: 140%;
+    background-repeat: no-repeat;
+    background-position: 42% 50%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 500;
+    margin: 0 auto;
+    color: var(--title-color);
+}
+
+#presentation__texte {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#presentation__texte ul {
+    list-style: inside;
+}

@@ -1,0 +1,83 @@
+#details_container {
+    padding: 20px 10px 10px 0px;
+    box-sizing: border-box;
+}
+
+#details {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: white;
+    padding: 20px;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+/* texte quand aucun élément n'est sélectionné */
+#details__vide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;
+}
+
+/* logo */
+#details__logo {
+    width: 90px;
+    box-sizing: border-box;
+}
+#details__logo img {
+    width: 100%;
+}
+
+/* texte */
+#details__text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#details__text__titre {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: var(--title-color);
+}
+
+#details__text__titre2 {
+    margin-bottom: 3px;
+    color: var(--title-color);
+}
+
+#details__text__titre3 {
+    margin-bottom: 15px;
+    color: var(--text-light-color);
+}
+
+#details__text__text {
+    overflow: auto;
+    height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#details__text__text > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#details__text__text__competence {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#details__text__text__liens {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

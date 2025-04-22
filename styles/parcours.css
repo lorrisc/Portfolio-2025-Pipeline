@@ -1,0 +1,106 @@
+#parcours {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 10px 10px 0px 0px;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+/* Barre de navigation (fake) */
+#parcours__top {
+    background: #555964;
+    color: white;
+    font-weight: bold;
+}
+
+#parcours__top button {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    position: relative;
+    font-family: "Inter", sans-serif;
+}
+#parcours__top button svg {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+#parcours__top button::after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    background: #9bbbff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Pipeline */
+#graph {
+    background-color: #fff;
+    background-image: linear-gradient(45deg, #f5f5f5 25%, transparent 25%),
+        linear-gradient(-45deg, #f5f5f5 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #f5f5f5 75%),
+        linear-gradient(-45deg, transparent 75%, #f5f5f5 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    height: -webkit-fill-available;
+}
+
+.node image,
+.node text {
+    pointer-events: none;
+}
+
+.node-rect {
+    cursor: grab;
+    fill: white;
+    stroke-width: 2px;
+}
+
+.node-selected rect {
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
+    stroke: #333;
+    stroke-width: 2px;
+}
+
+.node-rect.education {
+    stroke: var(--education-color);
+}
+
+.node-rect.project {
+    stroke: var(--project-color);
+}
+.node-rect.experience {
+    stroke: var(--experience-color);
+}
+
+.node-text {
+    font-size: 1em;
+    pointer-events: none;
+    font-family: "Inter", sans-serif;
+}
+
+.node-title {
+    font-weight: bold;
+    fill: var(--title-color);
+}
+
+.node-date {
+    font-style: italic;
+    fill: var(--text-light-color);
+}
+
+.link {
+    fill: none;
+    stroke: var(--text-light-color);
+    stroke-width: 2px;
+}
+
+.arrow {
+    fill: var(--text-light-color);
+}
