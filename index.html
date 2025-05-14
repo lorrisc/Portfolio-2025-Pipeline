@@ -72,7 +72,8 @@
                         </li>
                         <li>
                             <a
-                                href="CV_CRAPPIER_Lorris_Data_Ingenieur"
+                                href="https://github.com/lorrisc/curriculum-vitae/raw/master/CV_Lorris_CRAPPIER_public.pdf"
+                                download="CV_Lorris_CRAPPIER_public.pdf"
                                 target="_blank"
                                 >Curriculum vitæ</a
                             >
@@ -107,6 +108,28 @@
                 </article>
             </article>
         </section>
+
+        <section id="cv-page">
+            <iframe src="https://lorrisc.github.io/curriculum-vitae/" frameborder="0"></iframe>
+        </section>
+
+        <script>
+            function checkWidth() {
+                if (window.innerWidth < 1000) {
+                    document.getElementById('container').style.display = 'none';
+                    document.getElementById('cv-page').style.display = 'block';
+                } else {
+                    document.getElementById('container').style.display = 'grid';
+                    document.getElementById('cv-page').style.display = 'none';
+                }
+            }
+
+            // Vérifiez la largeur au chargement de la page
+            window.onload = checkWidth;
+
+            // Vérifiez la largeur à chaque redimensionnement de la fenêtre
+            window.onresize = checkWidth;
+        </script>
 
         <script src="js/fonctions_generiques.js"></script>
         <script src="js/fonctions_d3.js"></script>
